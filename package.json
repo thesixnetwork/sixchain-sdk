@@ -1,11 +1,11 @@
 {
-  "name": "sixnft",
+  "name": "sixchain-sdk",
   "version": "0.0.1",
   "author": "sixnetwork <hamdee@six.network>",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/thesixnetwork/sixnft"
+    "url": "https://github.com/thesixnetwork/sixchain-sdk"
   },
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {

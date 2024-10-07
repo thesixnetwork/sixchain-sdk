@@ -39,5 +39,6 @@
     "@cosmjs/proto-signing": "0.32.3",
     "@cosmjs/stargate": "0.32.3"
   },
-  "keywords": []
+  "keywords": [],
+  "gitHead": "b9839d2e496735c95b7c077dba8c5904d630c447"
 }

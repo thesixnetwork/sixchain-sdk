@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/thesixnetwork/sixchain-sdk/compare/@thesixnetwork/sixchain-sdk@2.0.2...@thesixnetwork/sixchain-sdk@2.0.3) (2024-10-07)
+
+
+### Bug Fixes
+
+* **repo:** :bug: package json public repo ([f0968d6](https://github.com/thesixnetwork/sixchain-sdk/commit/f0968d6927351a091c97b332905978cacda6d6cc))
+
+
+
+
+
 ## [2.0.2](https://github.com/thesixnetwork/sixchain-sdk/compare/@thesixnetwork/sixchain-sdk@2.0.1...@thesixnetwork/sixchain-sdk@2.0.2) (2024-10-07)
 
 

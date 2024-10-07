@@ -1,6 +1,6 @@
 {
   "name": "@thesixnetwork/sixchain-sdk",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "author": "sixnetwork <hamdee@six.network>",
   "description": "SIX Protocol sdk",
   "main": "index.js",
@@ -40,5 +40,5 @@
     "@cosmjs/stargate": "0.32.3"
   },
   "keywords": [],
-  "gitHead": "b9839d2e496735c95b7c077dba8c5904d630c447"
+  "gitHead": "780356b29163c5a37c32f9c660020d1147736761"
 }

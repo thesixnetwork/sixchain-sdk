@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { Header, HeaderAmino, HeaderSDKType, Data, DataAmino, DataSDKType, Commit, CommitAmino, CommitSDKType } from "./types";
-import { EvidenceList, EvidenceListAmino, EvidenceListSDKType } from "./evidence";
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { EvidenceList, EvidenceListAmino, EvidenceListSDKType } from './evidence';
+import { Commit, CommitAmino, CommitSDKType,Data, DataAmino, DataSDKType, Header, HeaderAmino, HeaderSDKType } from './types';
 export interface Block {
   header: Header;
   data: Data;
@@ -9,7 +9,7 @@ export interface Block {
   lastCommit?: Commit;
 }
 export interface BlockProtoMsg {
-  typeUrl: "/tendermint.types.Block";
+  typeUrl: '/tendermint.types.Block';
   value: Uint8Array;
 }
 export interface BlockAmino {
@@ -19,7 +19,7 @@ export interface BlockAmino {
   last_commit?: CommitAmino;
 }
 export interface BlockAminoMsg {
-  type: "/tendermint.types.Block";
+  type: '/tendermint.types.Block';
   value: BlockAmino;
 }
 export interface BlockSDKType {
@@ -37,7 +37,7 @@ function createBaseBlock(): Block {
   };
 }
 export const Block = {
-  typeUrl: "/tendermint.types.Block",
+  typeUrl: '/tendermint.types.Block',
   encode(message: Block, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.header !== undefined) {
       Header.encode(message.header, writer.uint32(10).fork()).ldelim();
@@ -60,21 +60,21 @@ export const Block = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.header = Header.decode(reader, reader.uint32());
-          break;
-        case 2:
-          message.data = Data.decode(reader, reader.uint32());
-          break;
-        case 3:
-          message.evidence = EvidenceList.decode(reader, reader.uint32());
-          break;
-        case 4:
-          message.lastCommit = Commit.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.header = Header.decode(reader, reader.uint32());
+        break;
+      case 2:
+        message.data = Data.decode(reader, reader.uint32());
+        break;
+      case 3:
+        message.evidence = EvidenceList.decode(reader, reader.uint32());
+        break;
+      case 4:
+        message.lastCommit = Commit.decode(reader, reader.uint32());
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -122,7 +122,7 @@ export const Block = {
   },
   toProtoMsg(message: Block): BlockProtoMsg {
     return {
-      typeUrl: "/tendermint.types.Block",
+      typeUrl: '/tendermint.types.Block',
       value: Block.encode(message).finish()
     };
   }

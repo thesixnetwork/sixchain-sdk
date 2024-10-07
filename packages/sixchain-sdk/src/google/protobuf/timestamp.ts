@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
-import { fromJsonTimestamp, fromTimestamp } from "../../helpers";
+import { BinaryReader, BinaryWriter } from '../../binary';
+import { fromJsonTimestamp, fromTimestamp } from '../../helpers';
 /**
  * A Timestamp represents a point in time independent of any time zone or local
  * calendar, encoded as a count of seconds and fractions of seconds at
@@ -101,7 +101,7 @@ export interface Timestamp {
   nanos: number;
 }
 export interface TimestampProtoMsg {
-  typeUrl: "/google.protobuf.Timestamp";
+  typeUrl: '/google.protobuf.Timestamp';
   value: Uint8Array;
 }
 /**
@@ -190,7 +190,7 @@ export interface TimestampProtoMsg {
  */
 export type TimestampAmino = string;
 export interface TimestampAminoMsg {
-  type: "/google.protobuf.Timestamp";
+  type: '/google.protobuf.Timestamp';
   value: TimestampAmino;
 }
 /**
@@ -288,7 +288,7 @@ function createBaseTimestamp(): Timestamp {
   };
 }
 export const Timestamp = {
-  typeUrl: "/google.protobuf.Timestamp",
+  typeUrl: '/google.protobuf.Timestamp',
   encode(message: Timestamp, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.seconds !== BigInt(0)) {
       writer.uint32(8).int64(message.seconds);
@@ -305,15 +305,15 @@ export const Timestamp = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.seconds = reader.int64();
-          break;
-        case 2:
-          message.nanos = reader.int32();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.seconds = reader.int64();
+        break;
+      case 2:
+        message.nanos = reader.int32();
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -328,7 +328,7 @@ export const Timestamp = {
     return fromJsonTimestamp(object);
   },
   toAmino(message: Timestamp): TimestampAmino {
-    return fromTimestamp(message).toISOString().replace(/\.\d+Z$/, "Z");
+    return fromTimestamp(message).toISOString().replace(/\.\d+Z$/, 'Z');
   },
   fromAminoMsg(object: TimestampAminoMsg): Timestamp {
     return Timestamp.fromAmino(object.value);
@@ -341,7 +341,7 @@ export const Timestamp = {
   },
   toProtoMsg(message: Timestamp): TimestampProtoMsg {
     return {
-      typeUrl: "/google.protobuf.Timestamp",
+      typeUrl: '/google.protobuf.Timestamp',
       value: Timestamp.encode(message).finish()
     };
   }

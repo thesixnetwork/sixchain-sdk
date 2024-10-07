@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { BinaryReader, BinaryWriter } from '../../binary';
 /**
  * A generic empty message that you can re-use to avoid defining duplicated
  * empty messages in your APIs. A typical example is to use it as the request
@@ -13,7 +13,7 @@ import { BinaryReader, BinaryWriter } from "../../binary";
  */
 export interface Empty {}
 export interface EmptyProtoMsg {
-  typeUrl: "/google.protobuf.Empty";
+  typeUrl: '/google.protobuf.Empty';
   value: Uint8Array;
 }
 /**
@@ -29,7 +29,7 @@ export interface EmptyProtoMsg {
  */
 export interface EmptyAmino {}
 export interface EmptyAminoMsg {
-  type: "/google.protobuf.Empty";
+  type: '/google.protobuf.Empty';
   value: EmptyAmino;
 }
 /**
@@ -48,7 +48,7 @@ function createBaseEmpty(): Empty {
   return {};
 }
 export const Empty = {
-  typeUrl: "/google.protobuf.Empty",
+  typeUrl: '/google.protobuf.Empty',
   encode(_: Empty, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     return writer;
   },
@@ -59,9 +59,9 @@ export const Empty = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -89,7 +89,7 @@ export const Empty = {
   },
   toProtoMsg(message: Empty): EmptyProtoMsg {
     return {
-      typeUrl: "/google.protobuf.Empty",
+      typeUrl: '/google.protobuf.Empty',
       value: Empty.encode(message).finish()
     };
   }

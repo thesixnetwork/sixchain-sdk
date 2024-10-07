@@ -1,6 +1,6 @@
 //@ts-nocheck
-import { ParamChange, ParamChangeAmino, ParamChangeSDKType } from "./params";
-import { BinaryReader, BinaryWriter } from "../../../binary";
+import { BinaryReader, BinaryWriter } from '../../../binary';
+import { ParamChange, ParamChangeAmino, ParamChangeSDKType } from './params';
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
   /** subspace defines the module to query the parameter for. */
@@ -9,7 +9,7 @@ export interface QueryParamsRequest {
   key: string;
 }
 export interface QueryParamsRequestProtoMsg {
-  typeUrl: "/cosmos.params.v1beta1.QueryParamsRequest";
+  typeUrl: '/cosmos.params.v1beta1.QueryParamsRequest';
   value: Uint8Array;
 }
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
@@ -20,7 +20,7 @@ export interface QueryParamsRequestAmino {
   key?: string;
 }
 export interface QueryParamsRequestAminoMsg {
-  type: "cosmos-sdk/QueryParamsRequest";
+  type: 'cosmos-sdk/QueryParamsRequest';
   value: QueryParamsRequestAmino;
 }
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
@@ -34,7 +34,7 @@ export interface QueryParamsResponse {
   param: ParamChange;
 }
 export interface QueryParamsResponseProtoMsg {
-  typeUrl: "/cosmos.params.v1beta1.QueryParamsResponse";
+  typeUrl: '/cosmos.params.v1beta1.QueryParamsResponse';
   value: Uint8Array;
 }
 /** QueryParamsResponse is response type for the Query/Params RPC method. */
@@ -43,7 +43,7 @@ export interface QueryParamsResponseAmino {
   param?: ParamChangeAmino;
 }
 export interface QueryParamsResponseAminoMsg {
-  type: "cosmos-sdk/QueryParamsResponse";
+  type: 'cosmos-sdk/QueryParamsResponse';
   value: QueryParamsResponseAmino;
 }
 /** QueryParamsResponse is response type for the Query/Params RPC method. */
@@ -52,17 +52,17 @@ export interface QueryParamsResponseSDKType {
 }
 function createBaseQueryParamsRequest(): QueryParamsRequest {
   return {
-    subspace: "",
-    key: ""
+    subspace: '',
+    key: ''
   };
 }
 export const QueryParamsRequest = {
-  typeUrl: "/cosmos.params.v1beta1.QueryParamsRequest",
+  typeUrl: '/cosmos.params.v1beta1.QueryParamsRequest',
   encode(message: QueryParamsRequest, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
-    if (message.subspace !== "") {
+    if (message.subspace !== '') {
       writer.uint32(10).string(message.subspace);
     }
-    if (message.key !== "") {
+    if (message.key !== '') {
       writer.uint32(18).string(message.key);
     }
     return writer;
@@ -74,23 +74,23 @@ export const QueryParamsRequest = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.subspace = reader.string();
-          break;
-        case 2:
-          message.key = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.subspace = reader.string();
+        break;
+      case 2:
+        message.key = reader.string();
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
   },
   fromPartial(object: Partial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
-    message.subspace = object.subspace ?? "";
-    message.key = object.key ?? "";
+    message.subspace = object.subspace ?? '';
+    message.key = object.key ?? '';
     return message;
   },
   fromAmino(object: QueryParamsRequestAmino): QueryParamsRequest {
@@ -105,8 +105,8 @@ export const QueryParamsRequest = {
   },
   toAmino(message: QueryParamsRequest): QueryParamsRequestAmino {
     const obj: any = {};
-    obj.subspace = message.subspace === "" ? undefined : message.subspace;
-    obj.key = message.key === "" ? undefined : message.key;
+    obj.subspace = message.subspace === '' ? undefined : message.subspace;
+    obj.key = message.key === '' ? undefined : message.key;
     return obj;
   },
   fromAminoMsg(object: QueryParamsRequestAminoMsg): QueryParamsRequest {
@@ -114,7 +114,7 @@ export const QueryParamsRequest = {
   },
   toAminoMsg(message: QueryParamsRequest): QueryParamsRequestAminoMsg {
     return {
-      type: "cosmos-sdk/QueryParamsRequest",
+      type: 'cosmos-sdk/QueryParamsRequest',
       value: QueryParamsRequest.toAmino(message)
     };
   },
@@ -126,7 +126,7 @@ export const QueryParamsRequest = {
   },
   toProtoMsg(message: QueryParamsRequest): QueryParamsRequestProtoMsg {
     return {
-      typeUrl: "/cosmos.params.v1beta1.QueryParamsRequest",
+      typeUrl: '/cosmos.params.v1beta1.QueryParamsRequest',
       value: QueryParamsRequest.encode(message).finish()
     };
   }
@@ -137,7 +137,7 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
   };
 }
 export const QueryParamsResponse = {
-  typeUrl: "/cosmos.params.v1beta1.QueryParamsResponse",
+  typeUrl: '/cosmos.params.v1beta1.QueryParamsResponse',
   encode(message: QueryParamsResponse, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.param !== undefined) {
       ParamChange.encode(message.param, writer.uint32(10).fork()).ldelim();
@@ -151,12 +151,12 @@ export const QueryParamsResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.param = ParamChange.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.param = ParamChange.decode(reader, reader.uint32());
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -183,7 +183,7 @@ export const QueryParamsResponse = {
   },
   toAminoMsg(message: QueryParamsResponse): QueryParamsResponseAminoMsg {
     return {
-      type: "cosmos-sdk/QueryParamsResponse",
+      type: 'cosmos-sdk/QueryParamsResponse',
       value: QueryParamsResponse.toAmino(message)
     };
   },
@@ -195,7 +195,7 @@ export const QueryParamsResponse = {
   },
   toProtoMsg(message: QueryParamsResponse): QueryParamsResponseProtoMsg {
     return {
-      typeUrl: "/cosmos.params.v1beta1.QueryParamsResponse",
+      typeUrl: '/cosmos.params.v1beta1.QueryParamsResponse',
       value: QueryParamsResponse.encode(message).finish()
     };
   }

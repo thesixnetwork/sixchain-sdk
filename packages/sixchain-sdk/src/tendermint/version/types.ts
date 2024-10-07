@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BinaryReader, BinaryWriter } from "../../binary";
+import { BinaryReader, BinaryWriter } from '../../binary';
 /**
  * App includes the protocol and software version for the application.
  * This information is included in ResponseInfo. The App.Protocol can be
@@ -10,7 +10,7 @@ export interface App {
   software: string;
 }
 export interface AppProtoMsg {
-  typeUrl: "/tendermint.version.App";
+  typeUrl: '/tendermint.version.App';
   value: Uint8Array;
 }
 /**
@@ -23,7 +23,7 @@ export interface AppAmino {
   software?: string;
 }
 export interface AppAminoMsg {
-  type: "/tendermint.version.App";
+  type: '/tendermint.version.App';
   value: AppAmino;
 }
 /**
@@ -45,7 +45,7 @@ export interface Consensus {
   app: bigint;
 }
 export interface ConsensusProtoMsg {
-  typeUrl: "/tendermint.version.Consensus";
+  typeUrl: '/tendermint.version.Consensus';
   value: Uint8Array;
 }
 /**
@@ -58,7 +58,7 @@ export interface ConsensusAmino {
   app?: string;
 }
 export interface ConsensusAminoMsg {
-  type: "/tendermint.version.Consensus";
+  type: '/tendermint.version.Consensus';
   value: ConsensusAmino;
 }
 /**
@@ -73,16 +73,16 @@ export interface ConsensusSDKType {
 function createBaseApp(): App {
   return {
     protocol: BigInt(0),
-    software: ""
+    software: ''
   };
 }
 export const App = {
-  typeUrl: "/tendermint.version.App",
+  typeUrl: '/tendermint.version.App',
   encode(message: App, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.protocol !== BigInt(0)) {
       writer.uint32(8).uint64(message.protocol);
     }
-    if (message.software !== "") {
+    if (message.software !== '') {
       writer.uint32(18).string(message.software);
     }
     return writer;
@@ -94,15 +94,15 @@ export const App = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.protocol = reader.uint64();
-          break;
-        case 2:
-          message.software = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.protocol = reader.uint64();
+        break;
+      case 2:
+        message.software = reader.string();
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -110,7 +110,7 @@ export const App = {
   fromPartial(object: Partial<App>): App {
     const message = createBaseApp();
     message.protocol = object.protocol !== undefined && object.protocol !== null ? BigInt(object.protocol.toString()) : BigInt(0);
-    message.software = object.software ?? "";
+    message.software = object.software ?? '';
     return message;
   },
   fromAmino(object: AppAmino): App {
@@ -126,7 +126,7 @@ export const App = {
   toAmino(message: App): AppAmino {
     const obj: any = {};
     obj.protocol = message.protocol !== BigInt(0) ? (message.protocol?.toString)() : undefined;
-    obj.software = message.software === "" ? undefined : message.software;
+    obj.software = message.software === '' ? undefined : message.software;
     return obj;
   },
   fromAminoMsg(object: AppAminoMsg): App {
@@ -140,7 +140,7 @@ export const App = {
   },
   toProtoMsg(message: App): AppProtoMsg {
     return {
-      typeUrl: "/tendermint.version.App",
+      typeUrl: '/tendermint.version.App',
       value: App.encode(message).finish()
     };
   }
@@ -152,7 +152,7 @@ function createBaseConsensus(): Consensus {
   };
 }
 export const Consensus = {
-  typeUrl: "/tendermint.version.Consensus",
+  typeUrl: '/tendermint.version.Consensus',
   encode(message: Consensus, writer: BinaryWriter = BinaryWriter.create()): BinaryWriter {
     if (message.block !== BigInt(0)) {
       writer.uint32(8).uint64(message.block);
@@ -169,15 +169,15 @@ export const Consensus = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.block = reader.uint64();
-          break;
-        case 2:
-          message.app = reader.uint64();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+      case 1:
+        message.block = reader.uint64();
+        break;
+      case 2:
+        message.app = reader.uint64();
+        break;
+      default:
+        reader.skipType(tag & 7);
+        break;
       }
     }
     return message;
@@ -215,7 +215,7 @@ export const Consensus = {
   },
   toProtoMsg(message: Consensus): ConsensusProtoMsg {
     return {
-      typeUrl: "/tendermint.version.Consensus",
+      typeUrl: '/tendermint.version.Consensus',
       value: Consensus.encode(message).finish()
     };
   }

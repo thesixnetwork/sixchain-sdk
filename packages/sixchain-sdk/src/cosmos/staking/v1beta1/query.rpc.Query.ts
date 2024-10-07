@@ -1,8 +1,9 @@
 //@ts-nocheck
-import { Rpc } from "../../../helpers";
-import { BinaryReader } from "../../../binary";
-import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
-import { QueryValidatorApprovalRequest, QueryValidatorApprovalResponse, QueryValidatorsRequest, QueryValidatorsResponse, QueryValidatorRequest, QueryValidatorResponse, QueryValidatorDelegationsRequest, QueryValidatorDelegationsResponse, QueryValidatorUnbondingDelegationsRequest, QueryValidatorUnbondingDelegationsResponse, QueryDelegationRequest, QueryDelegationResponse, QueryUnbondingDelegationRequest, QueryUnbondingDelegationResponse, QueryDelegatorDelegationsRequest, QueryDelegatorDelegationsResponse, QueryDelegatorUnbondingDelegationsRequest, QueryDelegatorUnbondingDelegationsResponse, QueryRedelegationsRequest, QueryRedelegationsResponse, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse, QueryDelegatorValidatorRequest, QueryDelegatorValidatorResponse, QueryHistoricalInfoRequest, QueryHistoricalInfoResponse, QueryPoolRequest, QueryPoolResponse, QueryParamsRequest, QueryParamsResponse } from "./query";
+import { createProtobufRpcClient,QueryClient } from '@cosmjs/stargate';
+
+import { BinaryReader } from '../../../binary';
+import { Rpc } from '../../../helpers';
+import { QueryDelegationRequest, QueryDelegationResponse, QueryDelegatorDelegationsRequest, QueryDelegatorDelegationsResponse, QueryDelegatorUnbondingDelegationsRequest, QueryDelegatorUnbondingDelegationsResponse, QueryDelegatorValidatorRequest, QueryDelegatorValidatorResponse, QueryDelegatorValidatorsRequest, QueryDelegatorValidatorsResponse, QueryHistoricalInfoRequest, QueryHistoricalInfoResponse, QueryParamsRequest, QueryParamsResponse,QueryPoolRequest, QueryPoolResponse, QueryRedelegationsRequest, QueryRedelegationsResponse, QueryUnbondingDelegationRequest, QueryUnbondingDelegationResponse, QueryValidatorApprovalRequest, QueryValidatorApprovalResponse, QueryValidatorDelegationsRequest, QueryValidatorDelegationsResponse, QueryValidatorRequest, QueryValidatorResponse, QueryValidatorsRequest, QueryValidatorsResponse, QueryValidatorUnbondingDelegationsRequest, QueryValidatorUnbondingDelegationsResponse } from './query';
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Validators queries all validators that match the given status. */
@@ -70,77 +71,77 @@ export class QueryClientImpl implements Query {
   }
   validatorApproval(request: QueryValidatorApprovalRequest = {}): Promise<QueryValidatorApprovalResponse> {
     const data = QueryValidatorApprovalRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "ValidatorApproval", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'ValidatorApproval', data);
     return promise.then(data => QueryValidatorApprovalResponse.decode(new BinaryReader(data)));
   }
   validators(request: QueryValidatorsRequest): Promise<QueryValidatorsResponse> {
     const data = QueryValidatorsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Validators", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Validators', data);
     return promise.then(data => QueryValidatorsResponse.decode(new BinaryReader(data)));
   }
   validator(request: QueryValidatorRequest): Promise<QueryValidatorResponse> {
     const data = QueryValidatorRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Validator", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Validator', data);
     return promise.then(data => QueryValidatorResponse.decode(new BinaryReader(data)));
   }
   validatorDelegations(request: QueryValidatorDelegationsRequest): Promise<QueryValidatorDelegationsResponse> {
     const data = QueryValidatorDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "ValidatorDelegations", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'ValidatorDelegations', data);
     return promise.then(data => QueryValidatorDelegationsResponse.decode(new BinaryReader(data)));
   }
   validatorUnbondingDelegations(request: QueryValidatorUnbondingDelegationsRequest): Promise<QueryValidatorUnbondingDelegationsResponse> {
     const data = QueryValidatorUnbondingDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "ValidatorUnbondingDelegations", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'ValidatorUnbondingDelegations', data);
     return promise.then(data => QueryValidatorUnbondingDelegationsResponse.decode(new BinaryReader(data)));
   }
   delegation(request: QueryDelegationRequest): Promise<QueryDelegationResponse> {
     const data = QueryDelegationRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Delegation", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Delegation', data);
     return promise.then(data => QueryDelegationResponse.decode(new BinaryReader(data)));
   }
   unbondingDelegation(request: QueryUnbondingDelegationRequest): Promise<QueryUnbondingDelegationResponse> {
     const data = QueryUnbondingDelegationRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "UnbondingDelegation", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'UnbondingDelegation', data);
     return promise.then(data => QueryUnbondingDelegationResponse.decode(new BinaryReader(data)));
   }
   delegatorDelegations(request: QueryDelegatorDelegationsRequest): Promise<QueryDelegatorDelegationsResponse> {
     const data = QueryDelegatorDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorDelegations", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'DelegatorDelegations', data);
     return promise.then(data => QueryDelegatorDelegationsResponse.decode(new BinaryReader(data)));
   }
   delegatorUnbondingDelegations(request: QueryDelegatorUnbondingDelegationsRequest): Promise<QueryDelegatorUnbondingDelegationsResponse> {
     const data = QueryDelegatorUnbondingDelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorUnbondingDelegations", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'DelegatorUnbondingDelegations', data);
     return promise.then(data => QueryDelegatorUnbondingDelegationsResponse.decode(new BinaryReader(data)));
   }
   redelegations(request: QueryRedelegationsRequest): Promise<QueryRedelegationsResponse> {
     const data = QueryRedelegationsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Redelegations", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Redelegations', data);
     return promise.then(data => QueryRedelegationsResponse.decode(new BinaryReader(data)));
   }
   delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse> {
     const data = QueryDelegatorValidatorsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorValidators", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'DelegatorValidators', data);
     return promise.then(data => QueryDelegatorValidatorsResponse.decode(new BinaryReader(data)));
   }
   delegatorValidator(request: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse> {
     const data = QueryDelegatorValidatorRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "DelegatorValidator", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'DelegatorValidator', data);
     return promise.then(data => QueryDelegatorValidatorResponse.decode(new BinaryReader(data)));
   }
   historicalInfo(request: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse> {
     const data = QueryHistoricalInfoRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "HistoricalInfo", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'HistoricalInfo', data);
     return promise.then(data => QueryHistoricalInfoResponse.decode(new BinaryReader(data)));
   }
   pool(request: QueryPoolRequest = {}): Promise<QueryPoolResponse> {
     const data = QueryPoolRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Pool", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Pool', data);
     return promise.then(data => QueryPoolResponse.decode(new BinaryReader(data)));
   }
   params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish();
-    const promise = this.rpc.request("cosmos.staking.v1beta1.Query", "Params", data);
+    const promise = this.rpc.request('cosmos.staking.v1beta1.Query', 'Params', data);
     return promise.then(data => QueryParamsResponse.decode(new BinaryReader(data)));
   }
 }

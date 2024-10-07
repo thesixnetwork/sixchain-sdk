@@ -1,26 +1,26 @@
-# @thesixnetwork/sixchain-sdk
+# @thesixnetwork/sixnft
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/545047/188804067-28e67e5e-0214-4449-ab04-2e0c564a6885.svg" width="80"><br />
-    SIX Protocol sdk
+    NFT Gen2
 </p>
 
 <p align="center" width="100%">
-  <a href="https://github.com/thesixnetwork/sixchain-sdk/actions/workflows/run-tests.yml">
-    <img height="20" src="https://github.com/thesixnetwork/sixchain-sdk/actions/workflows/run-tests.yml/badge.svg" />
+  <a href="https://github.com/thesixnetwork/sixnft/actions/workflows/run-tests.yml">
+    <img height="20" src="https://github.com/thesixnetwork/sixnft/actions/workflows/run-tests.yml/badge.svg" />
   </a>
-   <a href="https://github.com/thesixnetwork/sixchain-sdk/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+   <a href="https://github.com/thesixnetwork/sixnft/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 </p>
 
 
 ## install
 
 ```sh
-npm install @thesixnetwork/sixchain-sdk
+npm install @thesixnetwork/sixnft
 ```
 ## Table of contents
 
-- [@thesixnetwork/sixchain-sdk](#@thesixnetwork/sixchain-sdk)
+- [@thesixnetwork/sixnft](#@thesixnetwork/sixnft)
   - [Install](#install)
   - [Table of contents](#table-of-contents)
 - [Usage](#usage)
@@ -45,7 +45,7 @@ npm install @thesixnetwork/sixchain-sdk
 ### RPC Clients
 
 ```js
-import { six } from '@thesixnetwork/sixchain-sdk';
+import { six } from '@thesixnetwork/sixnft';
 
 const { createRPCQueryClient } = six.ClientFactory; 
 const client = await createRPCQueryClient({ rpcEndpoint: RPC_ENDPOINT });
@@ -61,10 +61,10 @@ const balances = await client.six.exchange.v1beta1
 
 ### Composing Messages
 
-Import the `six` object from `@thesixnetwork/sixchain-sdk`. 
+Import the `six` object from `@thesixnetwork/sixnft`. 
 
 ```js
-import { six } from '@thesixnetwork/sixchain-sdk';
+import { six } from '@thesixnetwork/sixnft';
 
 const {
     createSpotLimitOrder,
@@ -76,7 +76,7 @@ const {
 #### CosmWasm Messages
 
 ```js
-import { cosmwasm } from "@thesixnetwork/sixchain-sdk";
+import { cosmwasm } from "@thesixnetwork/sixnft";
 
 const {
     clearAdmin,
@@ -91,7 +91,7 @@ const {
 #### IBC Messages
 
 ```js
-import { ibc } from '@thesixnetwork/sixchain-sdk';
+import { ibc } from '@thesixnetwork/sixnft';
 
 const {
     transfer
@@ -101,7 +101,7 @@ const {
 #### Cosmos Messages
 
 ```js
-import { cosmos } from '@thesixnetwork/sixchain-sdk';
+import { cosmos } from '@thesixnetwork/sixnft';
 
 const {
     fundCommunityPool,
@@ -142,7 +142,7 @@ Here are the docs on [creating signers](https://docs.cosmology.zone/cosmos-kit) 
 Use `getSigningSIXClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningSIXClient } from 'sixchain-sdk';
+import { getSigningSIXClient } from 'sixnft';
 
 const stargateClient = await getSigningSIXClient({
   rpcEndpoint,
@@ -230,7 +230,7 @@ import {
     ibcAminoConverters,
     sixAminoConverters,
     sixProtoRegistry
-} from 'sixchain-sdk';
+} from 'sixnft';
 
 const signer: OfflineSigner = /* create your signer (see above)  */
 const rpcEndpint = 'https://rpc.cosmos.directory/six'; // or another URL
@@ -269,7 +269,7 @@ yarn build
 
 ### Codegen
 
-Look inside of `scripts/codegen.ts` and configure the settings for bundling your SDK and contracts into `@thesixnetwork/sixchain-sdk`:
+Look inside of `scripts/codegen.ts` and configure the settings for bundling your SDK and contracts into `@thesixnetwork/sixnft`:
 
 ```
 yarn codegen

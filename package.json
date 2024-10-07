@@ -1,11 +1,11 @@
 {
-  "name": "sixchain-sdk",
+  "name": "sixnft",
   "version": "0.0.1",
   "author": "sixnetwork <hamdee@six.network>",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/thesixnetwork/sixchain-sdk"
+    "url": "https://github.com/thesixnetwork/sixnft"
   },
   "license": "SEE LICENSE IN LICENSE",
   "publishConfig": {
@@ -18,8 +18,8 @@
     "clean": "lerna run clean",
     "build": "lerna run build --stream",
     "lint": "lerna run lint --parallel",
-    "test": "lerna run test --stream --scope @thesixnetwork/sixchain-sdk",
-    "codegen": "lerna run codegen --stream --scope @thesixnetwork/sixchain-sdk",
+    "test": "lerna run test --stream --scope @thesixnetwork/sixnft",
+    "codegen": "lerna run codegen --stream --scope @thesixnetwork/sixnft",
     "symlink": "symlink-workspace --logLevel error",
     "postinstall": "yarn symlink"
   },

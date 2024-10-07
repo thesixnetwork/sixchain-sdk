@@ -12,7 +12,7 @@
   "registry": "https://registry.npmjs.org",
   "command": {
     "create": {
-      "homepage": "https://github.com/thesixnetwork/sixchain-sdk",
+      "homepage": "https://github.com/thesixnetwork/sixnft",
       "license": "SEE LICENSE IN LICENSE",
       "access": "restricted"
     },

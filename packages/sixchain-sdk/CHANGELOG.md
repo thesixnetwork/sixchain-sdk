@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/thesixnetwork/sixchain-sdk/compare/@thesixnetwork/sixchain-sdk@0.2.0...@thesixnetwork/sixchain-sdk@1.0.0) (2024-10-07)
+
+
+### Features
+
+* **sixchain-sdk:** :sparkles: add sixprotocol, sixnft and evm modules' ([c49289d](https://github.com/thesixnetwork/sixchain-sdk/commit/c49289d442a726d30d2bb029b3af271883fdb80a))
+
+
+
+
+
 # 0.2.0 (2024-10-07)
 
 
